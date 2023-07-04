@@ -1,0 +1,28 @@
+#boxTabla {
+   border: 2px solid black;
+   width: 100%;
+
+}
+
+.tabla {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.tabla select {
+    width: 40%;
+    
+}
+
+
+
+#cabezaTabla {
+font-weight: bold;
+font-style: italic;
+}
+
+#itemsTabla {
+font-style: normal;
+}
