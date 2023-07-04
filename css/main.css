@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer , header {
+    background-color: rgb(36, 36, 78);
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+}
+
+section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ejercicio{ 
+    margin-top: 20px;
+   
+}
+.ejercciio p {
+    font-size: 1rem;
+}
+
+input {
+    width: 80%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 40%;
+    height: 30px;
+}
+
+.button {
+    width: 20%;
+    display: block;
+    margin-top: 10px;
+}
