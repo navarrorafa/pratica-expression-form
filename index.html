@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
     <title>Practica Expression Formulario</title>
 </head>
 
@@ -14,13 +15,37 @@
     </header>
 
     <main>
-
+        <div class="ejercicio">
         <p>-Crear una clase Película con los atributos Título, Director, Año y Genero</p>
            <p> -Solicita los datos a través de un formulario, validar los campos Año que tenga 4 cifras y se encuentre entre el año 1800 y la fecha actual Los géneros serán terror, acción, comedia,romantica</p>
             <p>-Almacenar las peliculas en un array</p>
             <p>-Mostrar todas las películas en una tabla</p>
+        </div>
         
         <section id="formulario" class="formulario">
+            <form action="" method="get">
+                <fieldset>
+                    <legend>Peliculas</legend>
+                    <label for="pelicula">
+                        <p>Nombre da pelicula:</p>
+                    </label>
+                    <input type="name" placeholder="Escriba el nombre de la pelicula" name="pelicula" class="pelicula" required>
+                    <label for="director">
+                        <p>Director:</p>
+                    </label>
+                    <input type="name" placeholder="Escribe el nombre del Director" name="director" class="director" required>
+                    <label for="ano">
+                        <p>Año:</p>
+                    </label>
+                    <input type="number" placeholder="debe ser del 1800 a 2023" name="ano" class="ano">
+                    <p>Genero:</p>
+                    <select name="genero" id="genero">
+                        
+                        <option value="genero">Elige el genero</option>
+                    </select>
+                    <input type="submit" value="Enviar" class="button">
+                </fieldset>
+            </form>
 
         </section>
 
