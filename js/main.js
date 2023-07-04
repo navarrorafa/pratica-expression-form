@@ -1,8 +1,6 @@
 //array de objeto
 
-let arrayFormulario = {
-
-}
+let arrayFormulario = []
 
 let arrayGenero = ["terror", "accion", "comedia", "romantica"];
 
@@ -33,18 +31,83 @@ const crearMostrar = () => {
 
 const form = document.querySelector("#form");
 
-// form.addEventListener('button', recogerDatos);
-
 const recogerDatos = () => {
-    const cmpTitulo = document.querySelector("#pelicula");
+    const cmpTitulo = document.querySelector("#pelicula").value;
     const cmpDirector = document.querySelector("#director").value;
     const cmpAno = document.querySelector("#ano").value;
-    console.log(cmptitulo);
+    const cmpGenero = document.querySelector("#genero").value;
+
+    const pelicula = {
+        titulo: cmpTitulo, 
+        director: cmpDirector, 
+        ano: cmpAno, 
+        genero: cmpGenero
+    }
+
+    arrayFormulario.push(pelicula);
+
+    form.reset();
+    
 }
 
-
 //validar los datos del formulario
-//-----expresion regular
+
+const reglasValidar = () => {
+
+    const option01 = document.querySelector("#option01");
+
+    const validarTitulo = titulo => /[a-zA-Z0-9\s]/gi.test(titulo);
+
+    const validarDirector = director => /[a-zA-Z\s]/gi.test(director);
+    
+    const validarAno = ano => /^\d{4}$/g.test(ano);
+    
+    const validarGenero = () =>  select ==  option01;
+
+    let arrayValidar = [validarTitulo, validarDirector, validarAno, validarGenero];
+
+    return arrayValidar;
+   
+}
+
+const validarFormulario = () => {
+    let arrayValidar = reglasValidar();
+    
+    const cmpTitulo = document.querySelector("#pelicula").value;
+    const cmpDirector = document.querySelector("#director").value;
+    const cmpAno = document.querySelector("#ano").value;
+    const cmpGenero = document.querySelector("#genero").value;
+
+    if (!arrayValidar[0](cmpTitulo)) {
+        alert("Campo Título Inválido");
+        return false;
+    } 
+    if (!arrayValidar[1](cmpDirector)){
+        alert("Campo Director Inválido");
+        return false;
+    }
+    if (!arrayValidar[2](cmpAno)){
+        alert("Campo Año Inválido");
+        return false;
+    }
+    if (!arrayValidar[3](cmpGenero)){
+        alert("Campo Género Inválido");
+        return false;
+    }
+
+}
+
+form.addEventListener('submit', (ev) =>{
+    ev.preventDefault();
+    if (validarFormulario()){
+        recogerDatos();
+    }
+    
+}
+)
+
+
+
 
 //almacenar los datos
 
@@ -57,4 +120,7 @@ const recogerDatos = () => {
 
 crearOption();
 crearMostrar();
-recogerDatos();
+// recogerDatos();
+console.log(arrayFormulario)
+console.log(validarFormulario)
+console.log(recogerDatos)
