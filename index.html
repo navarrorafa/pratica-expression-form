@@ -24,23 +24,23 @@
         </div>
         
         <section id="formulario" class="formulario">
-            <form action="" method="get">
+            <form action="" method="get" name="formulario">
                 <fieldset>
                     <legend>Peliculas</legend>
                     <label for="pelicula">
                         <p>Nombre da pelicula:</p>
                     </label>
-                    <input type="name" placeholder="Escriba el nombre de la pelicula" name="pelicula" class="pelicula" required>
+                    <input type="name" placeholder="Escriba el nombre de la pelicula" name="pelicula" class="pelicula" id="pelicula">
                     <label for="director">
                         <p>Director:</p>
                     </label>
-                    <input type="name" placeholder="Escribe el nombre del Director" name="director" class="director" required>
+                    <input type="name" placeholder="Escribe el nombre del Director" name="director" class="director" id="director" required>
                     <label for="ano">
                         <p>Año:</p>
                     </label>
-                    <input type="number" placeholder="debe ser del 1800 a 2023" name="ano" class="ano">
+                    <input type="number" placeholder="debe ser del 1800 a 2023" name="ano" class="ano" id="ano">
                     <p>Genero:</p>
-                    <select name="genero" id="genero">
+                    <select name="genero" class="genero" id="genero">
                         
                         <option value="genero">Elige el genero</option>
                     </select>

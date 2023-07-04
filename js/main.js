@@ -29,11 +29,26 @@ const crearMostrar = () => {
     )
 }
 
-
-
 //function recoja los datos del formulario
+
+const form = document.querySelector("#form");
+
+// form.addEventListener('button', recogerDatos);
+
+const recogerDatos = () => {
+    const cmpTitulo = document.querySelector("#pelicula");
+    const cmpDirector = document.querySelector("#director").value;
+    const cmpAno = document.querySelector("#ano").value;
+    console.log(cmptitulo);
+}
+
+
 //validar los datos del formulario
+//-----expresion regular
+
 //almacenar los datos
+
+
 //activar el filtro
 //pintar en tabla
 //FILTRAR
@@ -42,3 +57,4 @@ const crearMostrar = () => {
 
 crearOption();
 crearMostrar();
+recogerDatos();
