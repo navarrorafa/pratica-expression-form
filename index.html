@@ -16,13 +16,13 @@
 
     <main>
         <div class="ejercicio">
-        <p>-Crear una clase Película con los atributos Título, Director, Año y Genero</p>
-        <p> -Solicita los datos a través de un formulario, validar los campos Año que tenga 4 cifras y se encuentre
-            entre el año 1800 y la fecha actual Los géneros serán terror, acción, comedia, romantica</p>
-        <p>-Almacenar las peliculas en un array</p>
-        <p>-Mostrar todas las películas en una tabla</p>
+            <p>-Crear una clase Película con los atributos Título, Director, Año y Genero</p>
+            <p> -Solicita los datos a través de un formulario, validar los campos Año que tenga 4 cifras y se encuentre
+                entre el año 1800 y la fecha actual Los géneros serán terror, acción, comedia, romantica</p>
+            <p>-Almacenar las peliculas en un array</p>
+            <p>-Mostrar todas las películas en una tabla</p>
         </div>
-        
+
         <section id="formulario" class="formulario">
             <form action="" method="get" name="formulario" id="form">
                 <fieldset>
@@ -30,11 +30,13 @@
                     <label for="pelicula">
                         <p>Nombre da pelicula:</p>
                     </label>
-                    <input type="name" placeholder="Escriba el nombre de la pelicula" name="pelicula" class="pelicula" id="pelicula">
+                    <input type="name" placeholder="Escriba el nombre de la pelicula" name="pelicula" class="pelicula"
+                        id="pelicula">
                     <label for="director">
                         <p>Director:</p>
                     </label>
-                    <input type="name" placeholder="Escribe el nombre del Director" name="director" class="director" id="director">
+                    <input type="name" placeholder="Escribe el nombre del Director" name="director" class="director"
+                        id="director">
                     <label for="ano">
                         <p>Año:</p>
                     </label>
@@ -57,14 +59,18 @@
             </select>
 
             <table id="boxTabla">
-                <tr id="cabezaTabla" class="lineaTabla">
-                    <th>Título</th>
-                    <th>Director</th>
-                    <th>Año</th>
-                    <th>Género</th>
-                </tr>
-             
-                          
+                <thead>
+                    <tr id="cabezaTabla">
+                        <th>Título</th>
+                        <th>Director</th>
+                        <th>Año</th>
+                        <th>Género</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTabla">
+                
+                </tbody>
+
             </table>
         </section>
 

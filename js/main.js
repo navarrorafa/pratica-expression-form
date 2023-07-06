@@ -5,8 +5,8 @@ let mostrar = document.querySelector('#mostrarGenero');
 const form = document.querySelector("#form");
 const fragment = document.createDocumentFragment();
 
-    const arrayFormulario = []
-    let arrayGenero = ["terror", "accion", "comedia", "romantica"];
+const arrayFormulario = []
+let arrayGenero = ["terror", "accion", "comedia", "romantica"];
 
 const regExp = {
     titulo: /[a-zA-Z0-9\s]/i,
@@ -25,11 +25,11 @@ console.log(arrayFormulario);
 const crearOption = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
+        select.append(options);
         options.value = item;
         options.innerHTML = item;
         options.setAttribute('id', `option${index++}`)
         options.classList.add('opciones')
-        select.append(options);
 
     }
     )
@@ -38,9 +38,9 @@ const crearOption = () => {
 const crearMostrar = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
+        mostrar.append(options);
         options.value = item;
         options.innerHTML = item;
-        mostrar.append(options);
     }
     )
 }
