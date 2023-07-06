@@ -21,7 +21,7 @@ section {
 }
 
 .ejercicio {
-    margin-top: 20px;
+    margin: 20px;
 
 }
 
@@ -46,9 +46,18 @@ select {
     margin-top: 10px;
 }
 
+h2 {
+    margin: 20px;
+}
+
+fieldset {
+    margin: 20px;
+}
+
 #boxTabla {
     border: 2px solid black;
     width: 100%;
+    margin: 70px;
 
 }
 
@@ -57,6 +66,7 @@ select {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 20px;
 }
 
 .tabla select {
@@ -66,6 +76,7 @@ select {
 
 .cabezaTabla {
     text-align: center;
+    border: 2px solid black;
 }
 
 .cabezaTabla th {
@@ -73,8 +84,6 @@ select {
     font-style: italic;
 
 }
-
-
 
 #itemsTabla {
     font-style: normal;
