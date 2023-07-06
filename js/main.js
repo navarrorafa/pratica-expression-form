@@ -14,6 +14,7 @@ const regExp = {
     director: /[a-zA-Z\s]/i,
     anio: /^\d{4}$/,
 }
+
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
     validarFormulario()
@@ -21,7 +22,8 @@ form.addEventListener('submit', (ev) => {
 
 }
 )
-mostrarGenero.addEventListener('click', (ev) => {
+
+mostrarGenero.addEventListener('change', (ev) => {
     ev.target.value;
     filtrarGenero();
 
@@ -143,10 +145,11 @@ const filtrarGenero = () => {
 
     if (valorSelect == 'mostrarGenero') {
         pintarTablas();
-    }
+    } else {
 
     const peliculasFiltradas = arrayFormulario.filter((pelicula) => {
-        pelicula.genero == genero
+        return pelicula.genero == valorSelect
+        
     })
     
     peliculasFiltradas.forEach((item, index) => {
@@ -170,6 +173,7 @@ const filtrarGenero = () => {
         fragment.append(lineaTabla);
     });
     bodyTabla.append(fragment);
+}
 
 }
 
