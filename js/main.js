@@ -141,5 +141,6 @@
 
     crearOption();
     crearMostrar();
-
+//
     // console.log(validarFormulario
+    
