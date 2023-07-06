@@ -4,6 +4,7 @@ let select = document.querySelector('#genero');
 let mostrar = document.querySelector('#mostrarGenero');
 const form = document.querySelector("#form");
 const fragment = document.createDocumentFragment();
+const mostrarGenero = document.querySelector('#mostrarGenero');
 
 const arrayFormulario = []
 let arrayGenero = ["terror", "accion", "comedia", "romantica"];
@@ -18,18 +19,24 @@ form.addEventListener('submit', (ev) => {
     validarFormulario()
     pintarTablas()
 
-
 }
 )
+mostrarGenero.addEventListener('click', (ev) => {
+    ev.target.value;
+    filtrarGenero();
+
+
+})
+
 console.log(arrayFormulario);
 const crearOption = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
-        select.append(options);
         options.value = item;
         options.innerHTML = item;
         options.setAttribute('id', `option${index++}`)
         options.classList.add('opciones')
+        select.append(options);
 
     }
     )
@@ -38,16 +45,14 @@ const crearOption = () => {
 const crearMostrar = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
-        mostrar.append(options);
         options.value = item;
         options.innerHTML = item;
+        mostrar.append(options);
     }
     )
 }
 
 //function recoja los datos del formulario
-
-
 
 const recogerDatos = () => {
     const cmpTitulo = document.querySelector("#pelicula").value;
@@ -80,32 +85,32 @@ const validarFormulario = () => {
 
     if (!regExp.titulo.test(titulo)) {
         alert("Campo Título Inválido");
-        return ;
+        return;
     }
     if (!regExp.director.test(director)) {
         alert("Campo Director Inválido");
-        return ;
+        return;
     }
     if (!regExp.anio.test(anio) || (anio < 1800 || anio > anioActual)) {
         alert("Campo Año Inválido");
-        return ;
+        return;
     }
     if (selectElige == 'elige') {
         alert("Campo Género Inválido");
-        return ;
+        return;
         console.log(selectElige);
     }
 
-recogerDatos()
+    recogerDatos()
 }
 
 const pintarTablas = () => {
     const tabla = document.querySelector('#boxTabla');
     const cabezaTabla = document.querySelector('#cabezaTabla');
     const bodyTabla = document.querySelector("#bodyTabla")
-     bodyTabla.innerHTML ="";
+    bodyTabla.innerHTML = "";
     arrayFormulario.forEach((item, index) => {
-        
+
         const lineaTabla = document.createElement('tr');
         lineaTabla.classList.add("cabezaTabla")
 
@@ -126,6 +131,48 @@ const pintarTablas = () => {
     });
     bodyTabla.append(fragment);
 };
+
+
+const filtrarGenero = () => {
+
+    const valorSelect = document.querySelector('#mostrarGenero').value;
+    const tabla = document.querySelector('#boxTabla');
+    const cabezaTabla = document.querySelector('#cabezaTabla');
+    const bodyTabla = document.querySelector("#bodyTabla")
+    bodyTabla.innerHTML = "";
+
+    if (valorSelect == 'mostrarGenero') {
+        pintarTablas();
+    }
+
+    const peliculasFiltradas = arrayFormulario.filter((pelicula) => {
+        pelicula.genero == genero
+    })
+    
+    peliculasFiltradas.forEach((item, index) => {
+
+        const lineaTabla = document.createElement('tr');
+        lineaTabla.classList.add("cabezaTabla")
+
+        const th1 = document.createElement('td');
+        th1.textContent = item.titulo;
+
+        const th2 = document.createElement('td');
+        th2.textContent = item.director;
+
+        const th3 = document.createElement('td');
+        th3.textContent = item.ano;
+
+        const th4 = document.createElement('td');
+        th4.textContent = item.genero;
+
+        lineaTabla.append(th1, th2, th3, th4);
+        fragment.append(lineaTabla);
+    });
+    bodyTabla.append(fragment);
+
+}
+
 
 
 
