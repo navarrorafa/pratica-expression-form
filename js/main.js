@@ -1,11 +1,26 @@
 //array de objeto
 
+let select = document.querySelector('#genero');
+let mostrar = document.querySelector('#mostrarGenero');
+const form = document.querySelector("#form");
+
 let arrayFormulario = []
 
 let arrayGenero = ["terror", "accion", "comedia", "romantica"];
 
-let select = document.querySelector('#genero');
-let mostrar = document.querySelector('#mostrarGenero');
+const regExp={
+    titulo:/[a-zA-Z0-9\s]/i,
+    director:/[a-zA-Z\s]/i,
+    anio:/^\d{4}$/,
+}
+form.addEventListener('submit', (ev) =>{
+    ev.preventDefault();
+   validarFormulario()
+        
+    
+    
+}
+)
 
 const crearOption = () => {
     arrayGenero.forEach((item, index, array) => {
@@ -29,13 +44,13 @@ const crearMostrar = () => {
 
 //function recoja los datos del formulario
 
-const form = document.querySelector("#form");
+
 
 const recogerDatos = () => {
     const cmpTitulo = document.querySelector("#pelicula").value;
     const cmpDirector = document.querySelector("#director").value;
     const cmpAno = document.querySelector("#ano").value;
-    const cmpGenero = document.querySelector("#genero").value;
+    const cmpGenero = document.querySelector("#option01").value;
 
     const pelicula = {
         titulo: cmpTitulo, 
@@ -50,61 +65,61 @@ const recogerDatos = () => {
     
 }
 
-//validar los datos del formulario
 
-const reglasValidar = () => {
 
-    const option01 = document.querySelector("#option01");
+// validar los datos del formulario
 
-    const validarTitulo = titulo => /[a-zA-Z0-9\s]/gi.test(titulo);
+// const reglasValidar = () => {
 
-    const validarDirector = director => /[a-zA-Z\s]/gi.test(director);
+//     const option01 = document.querySelector("#option01");
+
+//     const validarTitulo = titulo => /[a-zA-Z0-9\s]/gi.test(titulo);
+
+//     const validarDirector = director => /[a-zA-Z\s]/gi.test(director);
     
-    const validarAno = ano => /^\d{4}$/g.test(ano);
+//     const validarAno = ano => /^\d{4}$/g.test(ano);
     
-    const validarGenero = () =>  select ==  option01;
+//     const validarGenero = () =>  select ==  option01;
 
-    let arrayValidar = [validarTitulo, validarDirector, validarAno, validarGenero];
+//     let arrayValidar = [validarTitulo, validarDirector, validarAno, validarGenero];
 
-    return arrayValidar;
+//     return arrayValidar;
    
-}
+// }
 
 const validarFormulario = () => {
-    let arrayValidar = reglasValidar();
+    // let arrayValidar = reglasValidar();
     
-    const cmpTitulo = document.querySelector("#pelicula").value;
-    const cmpDirector = document.querySelector("#director").value;
-    const cmpAno = document.querySelector("#ano").value;
-    const cmpGenero = document.querySelector("#genero").value;
+    const titulo = document.querySelector("#pelicula").value;
+    const director = document.querySelector("#director").value;
+    const anio = document.querySelector("#ano").value;
+    let elige = document.querySelector('#option01').value;
 
-    if (!arrayValidar[0](cmpTitulo)) {
+    const anioActual = new Date().getFullYear()
+
+    if (!regExp.titulo.test(titulo)) {
         alert("Campo Título Inválido");
-        return false;
+        return ;
     } 
-    if (!arrayValidar[1](cmpDirector)){
+    if (!regExp.director.test(director)){
         alert("Campo Director Inválido");
-        return false;
+        return ;
     }
-    if (!arrayValidar[2](cmpAno)){
+    if (!regExp.anio.test(anio) ||  (anio < 1800 || anio > anioActual)){
         alert("Campo Año Inválido");
-        return false;
+        return ;
     }
-    if (!arrayValidar[3](cmpGenero)){
+    if (elige == "elige"){
         alert("Campo Género Inválido");
-        return false;
+        return ;
     }
+
+
+    recogerDatos();
 
 }
 
-form.addEventListener('submit', (ev) =>{
-    ev.preventDefault();
-    if (validarFormulario()){
-        recogerDatos();
-    }
-    
-}
-)
+
 
 
 
@@ -122,5 +137,5 @@ crearOption();
 crearMostrar();
 // recogerDatos();
 console.log(arrayFormulario)
-console.log(validarFormulario)
-console.log(recogerDatos)
+// console.log(validarFormulario)
+console.log(recogerDatos())
