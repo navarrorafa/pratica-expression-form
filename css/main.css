@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-footer , header {
+footer, header {
     background-color: rgb(36, 36, 78);
     color: #fff;
     text-align: center;
@@ -20,10 +20,11 @@ section {
     margin-bottom: 20px;
 }
 
-.ejercicio{ 
+.ejercicio {
     margin-top: 20px;
-   
+
 }
+
 .ejercciio p {
     font-size: 1rem;
 }
@@ -46,8 +47,8 @@ select {
 }
 
 #boxTabla {
-   border: 2px solid black;
-   width: 100%;
+    border: 2px solid black;
+    width: 100%;
 
 }
 
@@ -60,14 +61,21 @@ select {
 
 .tabla select {
     width: 40%;
-    
+
 }
 
-#cabezaTabla {
-font-weight: bold;
-font-style: italic;
+.cabezaTabla {
+    text-align: center;
 }
+
+.cabezaTabla th {
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+
 
 #itemsTabla {
-font-style: normal;
+    font-style: normal;
 }

@@ -3,9 +3,10 @@
 let select = document.querySelector('#genero');
 let mostrar = document.querySelector('#mostrarGenero');
 const form = document.querySelector("#form");
+const fragment = document.createDocumentFragment();
 
-const arrayFormulario = []
-let arrayGenero = ["terror", "accion", "comedia", "romantica"];
+    const arrayFormulario = []
+    let arrayGenero = ["terror", "accion", "comedia", "romantica"];
 
 const regExp = {
     titulo: /[a-zA-Z0-9\s]/i,
@@ -14,22 +15,22 @@ const regExp = {
 }
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
-    const validado = validarFormulario()
-    if (validado != false) arrayFormulario.push(validado)
-    console.log(validado);
-    console.log(arrayFormulario)
+    validarFormulario()
+    pintarTablas()
+
+
 }
 )
-
+console.log(arrayFormulario);
 const crearOption = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
-        
-        options.value = index;
+        options.value = item;
         options.innerHTML = item;
         options.setAttribute('id', `option${index++}`)
         options.classList.add('opciones')
         select.append(options);
+
     }
     )
 }
@@ -37,9 +38,9 @@ const crearOption = () => {
 const crearMostrar = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
-        mostrar.append(options);
         options.value = item;
         options.innerHTML = item;
+        mostrar.append(options);
     }
     )
 }
@@ -61,30 +62,11 @@ const recogerDatos = () => {
         genero: cmpGenero
     }
 
-    return pelicula
+    arrayFormulario.push(pelicula)
+    form.reset()
 
 }
 
-
-// validar los datos del formulario
-
-// const reglasValidar = () => {
-
-//     const option01 = document.querySelector("#option01");
-
-//     const validarTitulo = titulo => /[a-zA-Z0-9\s]/gi.test(titulo);
-
-//     const validarDirector = director => /[a-zA-Z\s]/gi.test(director);
-
-//     const validarAno = ano => /^\d{4}$/g.test(ano);
-
-//     const validarGenero = () =>  select ==  option01;
-
-//     let arrayValidar = [validarTitulo, validarDirector, validarAno, validarGenero];
-
-//     return arrayValidar;
-
-// }
 
 const validarFormulario = () => {
     // let arrayValidar = reglasValidar();
@@ -98,29 +80,57 @@ const validarFormulario = () => {
 
     if (!regExp.titulo.test(titulo)) {
         alert("Campo Título Inválido");
-        return false;
+        return ;
     }
     if (!regExp.director.test(director)) {
         alert("Campo Director Inválido");
-        return false;
+        return ;
     }
     if (!regExp.anio.test(anio) || (anio < 1800 || anio > anioActual)) {
         alert("Campo Año Inválido");
-        return false;
+        return ;
     }
-    console.log(selectElige)
-    if (!arrayGenero[selectElige]) {
+    if (selectElige == 'elige') {
         alert("Campo Género Inválido");
-        return false;
+        return ;
         console.log(selectElige);
     }
 
-    const datos = recogerDatos()
-    console.log(datos);
-    return datos
+recogerDatos()
 }
 
-//almacenar los datos
+const pintarTablas = () => {
+    const tabla = document.querySelector('#boxTabla');
+    const cabezaTabla = document.querySelector('#cabezaTabla');
+    const bodyTabla = document.querySelector("#bodyTabla")
+     bodyTabla.innerHTML ="";
+    arrayFormulario.forEach((item, index) => {
+        
+        const lineaTabla = document.createElement('tr');
+        lineaTabla.classList.add("cabezaTabla")
+
+        const th1 = document.createElement('td');
+        th1.textContent = item.titulo;
+
+        const th2 = document.createElement('td');
+        th2.textContent = item.director;
+
+        const th3 = document.createElement('td');
+        th3.textContent = item.ano;
+
+        const th4 = document.createElement('td');
+        th4.textContent = item.genero;
+
+        lineaTabla.append(th1, th2, th3, th4);
+        fragment.append(lineaTabla);
+    });
+    bodyTabla.append(fragment);
+};
+
+
+
+
+
 
 
 //activar el filtro
@@ -131,6 +141,5 @@ const validarFormulario = () => {
 
 crearOption();
 crearMostrar();
-
-// console.log(validarFormulario)
-
+//
+// console.log(validarFormulario
