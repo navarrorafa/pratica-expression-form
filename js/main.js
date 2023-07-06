@@ -24,12 +24,12 @@ form.addEventListener('submit', (ev) => {
 const crearOption = () => {
     arrayGenero.forEach((item, index, array) => {
         let options = document.createElement("OPTION");
-        select.append(options);
-        options.value = item;
+        
+        options.value = index;
         options.innerHTML = item;
         options.setAttribute('id', `option${index++}`)
         options.classList.add('opciones')
-
+        select.append(options);
     }
     )
 }
@@ -108,7 +108,8 @@ const validarFormulario = () => {
         alert("Campo Año Inválido");
         return false;
     }
-    if (selectElige == 'elige') {
+    console.log(selectElige)
+    if (!arrayGenero[selectElige]) {
         alert("Campo Género Inválido");
         return false;
         console.log(selectElige);
